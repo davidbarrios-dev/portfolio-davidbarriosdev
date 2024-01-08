@@ -1,0 +1,52 @@
+---
+import ExperienceItem from './ExperienceItem.astro';
+const EXPERIENCE = [
+  {
+    date: 'June 2022  - Present',
+    title: 'Software engineer - Twilio',
+    description:
+      'Develop new features and migrate existing legacy code to new standards of react working with frameworks and libraries such as  React, Node Js and languages like Javascript, Typescript and using technologies like Docker, Cypress, Buildkite, Datadog, Heap, etc.',
+  },
+  {
+    date: 'March 2022 - June 2022',
+    title: 'Software engineer - Sofka Technologies',
+    description:
+      'Developing software tools implementing business rules and workflows using different technologies based on Agile Software Development. Working with frameworks and libraries  such as Angular, Ionic and languages like Javascript, Typescript.',
+  },
+  {
+    date: 'July 2021 - December 2021',
+    title: 'Software engineer - Rockwell Automation',
+    description: `Developing software tools implementing business rules and workflows using different technologies based on Agile Software Development. Working with frameworks and libraries  such as Angular, React, Node Js and languages like Javascript, Typescript and using technologies like Graphql, Docker, Helm, Kubernetes.`,
+  },
+  {
+    date: 'February 2021 - July 2021',
+    title: 'Software developer - Pragma S.A',
+    description:
+      'Analyze and develop an onboarding portal to a Bank where clients can create their bank account easily, improving the workflow of the company using technologies such as Angular, Docker. Wrote unit tests using Karma and Jasmine to ensure code quality. Implements SOLID principles to ensure quality and maintainability of code.',
+  },
+  ,
+  {
+    date: 'September 2020 - February 2021',
+    title: 'Web developer - Neptuno Smart System S.A.S',
+    description:
+      'Develop Web applications using .Net, javascript  and C#(FrontEnd and BackEnd), implementing agile methodologies(SCRUM).  Developed and updated functionality based on customer requirements to ensure excellent user experience.',
+  },
+  ,
+  {
+    date: 'April 2019 - February 2020',
+    title: 'Frontend developer - Ciberdix S.A.S',
+    description:
+      'Analyzed and developed web applications using Angular, React implementing agile methodologies(SCRUM). Also doing support for mobile applications using Ionic. Collaborated with product team members to implement new feature developments.',
+  },
+];
+---
+
+<ol class="relative border-s border-gray-800 dark:border-gray-200 ml-3">
+  {
+    EXPERIENCE.map((experience) => (
+      <li class="mb-10 ms-4">
+        <ExperienceItem {...experience} />
+      </li>
+    ))
+  }
+</ol>

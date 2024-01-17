@@ -1,5 +1,5 @@
 ---
-const { title, date, description, link } = Astro.props;
+const { title, date, descriptions, link } = Astro.props;
 ---
 
 <div
@@ -13,6 +13,10 @@ const { title, date, description, link } = Astro.props;
 <h3 class="text-lg font-semibold text-yellow-800 dark:text-yellow-200 mt-2">
   {title}
 </h3>
-<p class="mb-4 text-base font-normal dark:text-gray-200 text-pretty">
-  {description}
+<p class="mb-4">
+  <ul
+    class="w-full font-normal space-y-1 text-base list-disc list-inside dark:text-gray-200 text-pretty"
+  >
+    {descriptions.map((description: string) => <li>{description}</li>)}
+  </ul>
 </p>

@@ -1,6 +1,11 @@
 ---
 import NextjsIcon from '../icons/Nextjs.astro';
 import TailwindIcon from '../icons/Tailwind.astro';
+import AstroIcon from '../icons/AstroIcon.astro';
+import SocialPill from './SocialPill.astro';
+import GitHubIcon from '../icons/GitHub.astro';
+import CodeIcon from '../icons/Code.astro';
+
 const TAGS = {
   NEXT: {
     name: 'NextJs',
@@ -12,14 +17,28 @@ const TAGS = {
     class: 'bg-[#003159] text-white',
     icon: TailwindIcon,
   },
+  ASTRO: {
+    name: 'Astro',
+    class: 'bg-black text-white',
+    icon: AstroIcon,
+  },
 };
 const PROJECTS = [
+  {
+    title: 'Fodye Rank - Food reviews blog',
+    description:
+      'Fodye Rank is a food reviews blog where i share my experience with food and restaurants. It is built with Astro, React, Tailwind CSS and NextUi.',
+    link: 'https://fudye-rank.netlify.app/',
+    github: 'https://github.com/davidbarrios-dev/food-rating',
+    image: '/projects/screenshot-fodye.webp',
+    tags: [TAGS.ASTRO, TAGS.TAILWIND],
+  },
   {
     title: 'TeacherDash - A Dashboard for Teachers',
     description:
       'TeacherDash simplifies classroom management with an easy-to-use dashboard. Track student progress, manage assignments, and enhance communication effortlessly, streamlining the teaching experience.',
-    link: 'https://www.google.com/',
-    github: 'https://www.google.com/',
+    link: '',
+    github: '',
     image: '/projects/teacher-dashboard.webp',
     tags: [TAGS.NEXT, TAGS.TAILWIND],
   },
@@ -28,13 +47,17 @@ const PROJECTS = [
 
 {
   PROJECTS.map(({ title, description, link, github, image, tags }) => (
-    <article>
-      <h3 class="text-2xl font-semibold text-yellow-800 dark:text-yellow-200 mb-2">{title}</h3>
+    <article class="mb-14">
+      <h3 class="text-2xl font-semibold text-yellow-800 dark:text-yellow-200 mb-2">
+        {title}
+      </h3>
       <p class="text-lg mb-4 text-pretty">{description}</p>
       <ul class="flex gap-x-2 flex-row mb-2">
         {tags.map((tag) => (
           <li>
-            <span class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 border border-white/10`}>
+            <span
+              class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 border border-white/10`}
+            >
               <tag.icon class="size-4" />
               {tag.name}
             </span>
@@ -47,6 +70,16 @@ const PROJECTS = [
         src={image}
         alt={`Screenshot of project ${title}`}
       />
+      {link && github && (
+        <div class="flex flex-row mt-4 gap-x-4">
+          <SocialPill href={github}>
+            <GitHubIcon class="size-4 md:size-6" /> GitHub Project
+          </SocialPill>
+          <SocialPill href={link}>
+            <CodeIcon class="size-4 md:size-6" /> Website
+          </SocialPill>
+        </div>
+      )}
     </article>
   ))
 }
